@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import ru.alfabank.practice.nmborisova.bankonboarding.exception.ProductNotFoundException;
 import ru.alfabank.practice.nmborisova.bankonboarding.model.GreetingForm;
 import ru.alfabank.practice.nmborisova.bankonboarding.model.Product;
 import ru.alfabank.practice.nmborisova.bankonboarding.model.Request;
 import ru.alfabank.practice.nmborisova.bankonboarding.model.RequestedItem;
 import ru.alfabank.practice.nmborisova.bankonboarding.service.ShopService;
-import ru.alfabank.practice.nmborisova.bankonboarding.util.ProductNotFoundException;
 
 import java.util.Set;
 
@@ -22,11 +22,11 @@ public class ShopController {
 
     @GetMapping("/welcome")
     public GreetingForm greet() {
-       return shopService.greet();
+        return shopService.greet();
     }
 
     @GetMapping("/product")
-    public Set<Product> getProductList () {
+    public Set<Product> getProductList() {
         return shopService.getProductList();
     }
 

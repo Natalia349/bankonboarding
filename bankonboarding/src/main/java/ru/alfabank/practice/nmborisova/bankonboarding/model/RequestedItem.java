@@ -1,6 +1,6 @@
 package ru.alfabank.practice.nmborisova.bankonboarding.model;
 
-import ru.alfabank.practice.nmborisova.bankonboarding.util.ProductNotFoundException;
+import ru.alfabank.practice.nmborisova.bankonboarding.exception.ProductNotFoundException;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -9,9 +9,9 @@ import java.util.Set;
 public class RequestedItem {
     private String id;
     private String name;
-    private double price;
-    private int amount;
-    private double totalPrice;
+    private Double price;
+    private Integer amount;
+    private Double totalPrice;
 
     @Override
     public boolean equals(Object o) {
@@ -34,15 +34,15 @@ public class RequestedItem {
         return name;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public int getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
-    public double getTotalPrice() {
+    public Double getTotalPrice() {
         return totalPrice;
     }
 

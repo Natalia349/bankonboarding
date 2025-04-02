@@ -2,14 +2,13 @@ package ru.alfabank.practice.nmborisova.bankonboarding.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.alfabank.practice.nmborisova.bankonboarding.exception.ProductNotFoundException;
 import ru.alfabank.practice.nmborisova.bankonboarding.model.GreetingForm;
 import ru.alfabank.practice.nmborisova.bankonboarding.model.Product;
 import ru.alfabank.practice.nmborisova.bankonboarding.model.Request;
 import ru.alfabank.practice.nmborisova.bankonboarding.model.RequestedItem;
-import ru.alfabank.practice.nmborisova.bankonboarding.util.ProductNotFoundException;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 @Service
@@ -31,12 +30,11 @@ public class ShopService {
     }
 
     public Set<Product> getProductList() {
-
         return productList;
     }
 
     public Request calculateTotalPrice(Set<RequestedItem> request) throws ProductNotFoundException {
-        double total=0;
+        double total = 0;
         for (RequestedItem item : request) {
             item.findProduct(productList);
             total += item.getTotalPrice();
