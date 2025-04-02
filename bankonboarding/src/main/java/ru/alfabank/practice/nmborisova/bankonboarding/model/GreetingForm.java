@@ -4,5 +4,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class GreetingForm {
-    public final String message = "Добро пожаловать в наш чудесный магазин";
+
+    private final String message = "Добро пожаловать в наш чудесный магазин";
+
+    public String getMessage() {
+        return message;
+    }
 }

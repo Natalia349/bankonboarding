@@ -39,7 +39,7 @@ public class ShopService {
         double total=0;
         for (RequestedItem item : request) {
             item.findProduct(productList);
-            total += item.totalPrice;
+            total += item.getTotalPrice();
         }
         return new Request(total, request);
     }

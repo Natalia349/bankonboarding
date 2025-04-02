@@ -7,11 +7,11 @@ import java.util.Optional;
 import java.util.Set;
 
 public class RequestedItem {
-    public String id;
-    public String name;
-    public double price;
-    public int amount;
-    public double totalPrice;
+    private String id;
+    private String name;
+    private double price;
+    private int amount;
+    private double totalPrice;
 
     @Override
     public boolean equals(Object o) {
@@ -26,13 +26,53 @@ public class RequestedItem {
         return Objects.hashCode(id);
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     public void findProduct (Set<Product> productList) throws ProductNotFoundException {
         Optional<Product> optProduct = productList.stream()
-                .filter(x -> x.id.equals(this.id))
+                .filter(x -> x.getId().equals(this.id))
                 .findFirst();
         if (optProduct.isPresent()){
-            this.name = optProduct.get().name;
-            this.price = optProduct.get().price;
+            this.name = optProduct.get().getName();
+            this.price = optProduct.get().getPrice();
             this.totalPrice = this.price * this.amount;
         }
 
